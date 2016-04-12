@@ -21,8 +21,8 @@ export default class HotelMapView extends React.Component {
   constructor() {
     super();
     this.state = {
-      mapX: -200,
-      mapY: -30
+      mapX: 0,
+      mapY: 0
     }
   }
 
@@ -95,8 +95,8 @@ var styles = StyleSheet.create({
   map: {
     borderColor: globalStyles.COLORS.border,
     borderWidth: 10,
-    height: 825,
+    height: (8.25)*120,
     position: 'absolute',
-    width: 525
+    width: (5.25)*120
   }
 });

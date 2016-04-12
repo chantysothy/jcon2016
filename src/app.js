@@ -17,6 +17,8 @@ import React, {
 
 import { Actions, Route, Router, Schema, NavBar, TabBar } from 'react-native-router-flux';
 
+import _ from 'lodash';
+
 import Icon from 'react-native-vector-icons/Entypo';
 import SideMenu from 'react-native-side-menu';
 
@@ -56,8 +58,8 @@ export default class ConNexusReact extends Component {
 
     Promise.all([
       dataStore.fetchPackageFromStorage(),
-      dataStore.fetchPackageFromLocalFile(),
-      //dataStore.fetchPackageFromNetwork()
+      //dataStore.fetchPackageFromLocalFile(),
+      dataStore.fetchPackageFromNetwork()
     ]).then(results => {
       let storageData = results[0];
       let networkData = results[1];
@@ -89,6 +91,9 @@ export default class ConNexusReact extends Component {
       console.log(msg);
 
       global.makeToast(msg);
+
+      con_data.events = _.sortBy(con_data.events, 'datetime');
+      console.log(con_data);
 
       global.con_data = con_data;
       this.setState({

@@ -42,11 +42,10 @@ export default class ScheduleView extends Component {
     let rowIDs     = [];
     let currentDay = null;
 
-    _.sortBy(global.con_data.events, 'datetime').forEach((e, index) => {
+    _.forEach(global.con_data.events, (e, index) => {
       let d = moment.utc(e.datetime); //, "YYYY-MM-DDThh:mm:ss");
       let day = days[d.day()];
       if (day !== currentDay) {
-        console.log("new day", d.day());
         sectionIDs.push(day);
         dataBlob[day] = d;
         rowIDs.push([]);
@@ -56,7 +55,6 @@ export default class ScheduleView extends Component {
       rowIDs[rowIDs.length-1].push(key);
       dataBlob[day+':'+key] = e;
     });
-    console.log("BLOB",dataBlob);
 
     let ds = new ListView.DataSource({
       getRowData     : getRowData,
@@ -89,6 +87,17 @@ export default class ScheduleView extends Component {
     }
   }
 
+  componentDidMount() {
+    let now = moment.utc().format();
+    console.log("now", now);
+    let which_index = 0;
+    let which = _.find(global.con_data.events, (event, index) => {
+      which_index = index;
+      return (event.datetime > now);
+    });
+    this.refs.listview.scrollTo({ y: which_index*59, animated: true });
+  }
+
   renderSectionHeader(sectionData, sectionID) {
     return (
       <View style={ styles.section }>
@@ -117,6 +126,7 @@ export default class ScheduleView extends Component {
           </View>
         ) : (
           <ListView
+            ref='listview'
             style={ styles.scroll }
             dataSource={ this.state.dataSource }
             renderRow={ this.renderRow }
