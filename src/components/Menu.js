@@ -42,10 +42,11 @@ export default class Menu extends React.Component {
   render() {
     return (
       <ScrollView style={ styles.container }>
-        <MenuItem key="directions" action="directions" text="Maps & Directions" icon="map"     onAction={ () => this.props.onAction() } />
-        <MenuItem key="feedback"   action="feedback"   text="Feedback"          icon="pencil"  onAction={ () => this.props.onAction() } />
-        <MenuItem key="newsfeed"   action="newsFeed"   text="News & Updates"    icon="bell"    onAction={ () => this.props.onAction() } />
-        <MenuItem key="about"      action="about"      text="About"             icon="help"    onAction={ () => this.props.onAction() } />
+        <MenuItem key="hotelMap"   action="hotelMap"   text="Hotel Map"             icon="map"     onAction={ () => this.props.onAction() } />
+        <MenuItem key="directions" action="directions" text="Location & Directions" icon="pin"     onAction={ () => this.props.onAction() } />
+        <MenuItem key="feedback"   action="feedback"   text="Feedback"              icon="pencil"  onAction={ () => this.props.onAction() } />
+        <MenuItem key="newsfeed"   action="newsFeed"   text="News & Updates"        icon="bell"    onAction={ () => this.props.onAction() } />
+        <MenuItem key="about"      action="about"      text="About"                 icon="help"    onAction={ () => this.props.onAction() } />
       </ScrollView>
     )
   }
