@@ -1,0 +1,3 @@
+rootProject.name = 'jcon2016'
+
+include ':app'
