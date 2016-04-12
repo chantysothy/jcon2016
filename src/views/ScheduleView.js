@@ -14,10 +14,10 @@ let {
   View
 } = React;
 
+import _      from 'lodash';
 import moment from 'moment';
 
 import EventItem from '../components/EventItem';
-
 import globalStyles from '../globalStyles';
 
 let window = Dimensions.get('window');
