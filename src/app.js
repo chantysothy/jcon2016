@@ -120,9 +120,6 @@ export default class ConNexusReact extends Component {
               navigationBarStyle={ styles.navbar }
               footer={ Tabbers }
               onPressMenuButton={ () => this.openMenu() }>
-              <Schema name="modal"   sceneConfig={ Navigator.SceneConfigs.FloatFromBottom }/>
-              <Schema name="default" sceneConfig={ Navigator.SceneConfigs.FloatFromRight  }/>
-              <Schema name="tab" type="reset" />
 
               <Route name="dashboard" schema="tab" title="Home"      component={ DashboardView } />
               <Route name="schedule"  schema="tab" title="Schedule"  component={ ScheduleView }  />
