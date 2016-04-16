@@ -6,9 +6,10 @@ export default {
   COLORS: {
     border: '#DDD',
     headerBg: '#313b6c',
-    highlight: '#426',
+    highlight: '#537',
     highlightDark: '#325',
-    menuBg: '#212b5c'
+    menuBg: '#212b5c',
+    sectionHeader: '#a55242'
   },
   floatingList: {
     backgroundColor: '#FFFFFF',

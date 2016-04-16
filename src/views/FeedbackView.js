@@ -108,7 +108,7 @@ const styles = StyleSheet.create({
   },
   button: {
     alignItems: 'center',
-    backgroundColor: '#48D',
+    backgroundColor: globalStyles.COLORS.highlight,
     borderRadius: 10,
     marginBottom: 50,
     paddingHorizontal: 20,

@@ -176,7 +176,7 @@ const styles = StyleSheet.create({
     paddingVertical: 15
   },
   section: {
-    backgroundColor: globalStyles.COLORS.highlight,
+    backgroundColor: globalStyles.COLORS.sectionHeader,
     paddingHorizontal: 10,
     paddingVertical: 15,
     shadowColor: "#000000",
