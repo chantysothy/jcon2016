@@ -14,7 +14,7 @@ export default class Toast extends React.Component {
     super();
     this.state = {
       bgColor: this.getBgColor(),
-      bottom: new Animated.Value(-60),
+      bottom: new Animated.Value(-120),
       text: 'ERROR'
     }
   }
@@ -41,14 +41,14 @@ export default class Toast extends React.Component {
       // add
       Animated.timing(
         this.state.bottom,
-        { toValue: 60 }
+        { toValue: 80 }
       ).start();
 
       // remove
       setTimeout(() => {
         Animated.timing(
           this.state.bottom,
-          { toValue: -60 }
+          { toValue: -120 }
         ).start();
       }, 4000);
     }
@@ -72,8 +72,7 @@ let styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     opacity: 0.9,
-    paddingHorizontal: 80,
-    paddingVertical: 10,
+    padding: 10,
     position: 'absolute',
       left: 50,
       right: 50,

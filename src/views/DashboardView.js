@@ -61,7 +61,7 @@ export default class DashboardView extends Component {
     return (
       <View style={ styles.container }>
         <ScrollView style={{ flexDirection: 'column' }}>
-          <Image style={{ flex: 1, height: 333, width: window.width }} source={ require('image!dashboard') } />
+          <Image style={{ flex: 1, height: 333, width: window.width }} source={ require('../../img/dashboard.png') } />
           <Text style={ styles.todoTitleText }>MY TO-DO LIST</Text>
           { this.state.todoCount > 0 ? (
           <ListView

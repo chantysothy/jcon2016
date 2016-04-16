@@ -2,6 +2,4 @@ rootProject.name = 'jcon2016'
 
 include ':app'
 include ':react-native-vector-icons'
-project(':react-native-vector-icons').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-vector-icons//Users/ben/Dev/jcon2016/node_modules/react-native-vector-icons/android')
-include ':react-native-vector-icons'
-project(':react-native-vector-icons').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-vector-icons//Users/ben/Dev/jcon2016/node_modules/react-native-vector-icons/android')
+project(':react-native-vector-icons').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-vector-icons/android')

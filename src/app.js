@@ -140,9 +140,9 @@ export default class ConNexusReact extends Component {
               <Route name="newsFeed"   title="News"        component={ NewsView     } />
             </Router>
           </View>
-          <TouchableOpacity style={ styles.newsButton } onPress={ () => Actions.newsFeed() }>
+          <TouchableOpacity style={ globalStyles.newsButton } onPress={ () => Actions.newsFeed() }>
             <Icon name="bell" size={22} color="white" />
-            <View style={ styles.newsDot } />
+            <View style={ globalStyles.newsDot } />
           </TouchableOpacity>
         </SideMenu>
         { this.state.loading ? (
@@ -179,24 +179,5 @@ let styles = StyleSheet.create({
   },
   scene: {
     paddingTop: 63
-  },
-  newsButton: {
-    alignItems: 'center',
-    height: 50,
-    justifyContent: 'center',
-    marginTop: 18,
-    position: 'absolute',
-    right: 0,
-    top: 0,
-    width: 50
-  },
-  newsDot: {
-    backgroundColor: 'red',
-    borderRadius: 10,
-    height: 10,
-    position: 'absolute',
-    top: 10,
-    right: 10,
-    width: 10
   }
 });

@@ -79,7 +79,7 @@ export default class HotelMapView extends React.Component {
       <View style={ styles.container } {...this._panResponder.panHandlers}>
         <Image
           style={[ styles.map, { left: this.state.mapX, top: this.state.mapY} ]}
-          source={ require('image!hotel_map') }
+          source={ require('../../img/hotel_map.png') }
           />
       </View>
     );
