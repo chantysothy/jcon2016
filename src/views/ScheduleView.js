@@ -65,23 +65,26 @@ export default class ScheduleView extends Component {
 
     this.state = {
       dataSource: ds.cloneWithRowsAndSections(dataBlob, sectionIDs, rowIDs),
-      searchResults: []
+      searchResults: [],
+      isSearching: false
     };
   }
 
   handleFilterInput(text) {
     if (text.length > 2) {
       let filteredEvents = global.con_data.events.filter(e => {
-        return e.title.toLowerCase().indexOf(text.toLowerCase()) > -1;
+        let str = e.title+' '+e.location+' '+e.track;
+        return str.toLowerCase().indexOf(text.toLowerCase()) > -1;
       });
       this.setState({
+        isSearching: true,
         searchResults: filteredEvents,
         filterText: text
       });
       console.log("Displaying events", filteredEvents);
     } else {
       this.setState({
-        searchResults: [],
+        isSearching: false,
         filterText: text
       });
     }
@@ -115,7 +118,7 @@ export default class ScheduleView extends Component {
   render() {
     return (
       <View style={{ flex: 1 }}>
-        { this.state.searchResults.length ? (
+        { this.state.isSearching ? (
           <View>
             <View style={[styles.section, { marginTop: 39 }]}><Text style={ styles.sectionText }>SEARCH RESULTS</Text></View>
             <ScrollView style={ styles.searchResults }>
@@ -133,6 +136,11 @@ export default class ScheduleView extends Component {
             renderSectionHeader={ this.renderSectionHeader }
           />
         ) }
+
+        { this.state.isSearching && this.state.searchResults.length === 0 ? (
+          <Text style={ styles.noResults }>No results found</Text>
+        ) : null }
+
         <View style={ styles.filterContainer }>
           <TextInput placeholder="Search for an event" style={ styles.filterInput } value={ this.state.filterText } onChangeText={ this.handleFilterInput.bind(this) } />
         </View>
@@ -156,6 +164,9 @@ const styles = StyleSheet.create({
   filterInput: {
     fontSize: 15,
     height: 40
+  },
+  noResults: {
+    padding: 10
   },
   scroll: {
     backgroundColor: '#FFFFFF',

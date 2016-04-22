@@ -6,6 +6,7 @@
 import React, {
   Alert,
   AsyncStorage,
+  BackAndroid,
   Component,
   Dimensions,
   Navigator,
@@ -55,6 +56,11 @@ export default class ConNexusReact extends Component {
   componentWillMount() {
     let con_data = {};
     let msg = "Could not get convention data";
+
+    BackAndroid.addEventListener('hardwareBackPress', function() {
+      Actions.pop();
+      return true;
+    });
 
     Promise.all([
       dataStore.fetchPackageFromStorage(),
